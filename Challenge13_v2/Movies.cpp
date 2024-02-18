@@ -13,6 +13,7 @@
 **************************************************************************/
 Movies::Movies()
 {
+    movies = new std::vector<Movie>();
 }
 
 /*************************************************************************
@@ -20,6 +21,7 @@ Movies::Movies()
 **************************************************************************/
 Movies::~Movies()
 {
+    delete movies;
 }
 
 /*************************************************************************
@@ -34,16 +36,25 @@ Movies::~Movies()
   *********************************************************************/
 bool Movies::add_movie(std::string name, std::string rating, int watched)
 {
-    int size = movies.size();
-    for (int i{}; i < size; i++)
+    // Check if movies is a valid pointer
+    if (movies == nullptr)
     {
-        if (movies.at(i).get_name() == name)
+        return false;
+    }
+
+    // Check if the movie already exists
+    for (const auto &movie : *movies)
+    {
+        if (movie.get_name() == name)
         {
-            return false;
+            return false; // Movie already exists
         }
     }
-    Movie myMovie(name, rating, watched);
-    movies.push_back(myMovie);
+
+    // Create a new movie object and add it to the vector
+    Movie newMovie(name, rating, watched);
+    movies->push_back(newMovie);
+
     return true;
 }
 
@@ -60,12 +71,18 @@ bool Movies::add_movie(std::string name, std::string rating, int watched)
    *********************************************************************/
 bool Movies::increment_watched(std::string name)
 {
-    int size = movies.size();
-    for (int i{}; i < size; i++)
+    // Check if movies is a valid pointer
+    if (movies == nullptr)
     {
-        if (movies.at(i).get_name() == name)
+        return false;
+    }
+
+    // Check if the movie already exists
+    for (auto &movie : *movies)
+    {
+        if (movie.get_name() == name)
         {
-            movies.at(i).increment_watched();
+            movie.increment_watched();
             return true;
         }
     }
@@ -81,10 +98,19 @@ bool Movies::increment_watched(std::string name)
     *********************************************************************/
 void Movies::display() const
 {
-    int size = movies.size();
-    for (int i{}; i < size; i++)
+    if (movies == nullptr)
     {
-        movies.at(i).display();
+        std::cout << "Sorry, no movies to display" << std::endl;
     }
+    else
+    {
+        std::cout << "\n==================================" << std::endl;
+        for (const auto &movie : *movies)
+        {
+            movie.display();
+        }
+        std::cout << "===================================" << std::endl;
+    }
+    std::cout << std::endl;
     // You implement this method
 }
