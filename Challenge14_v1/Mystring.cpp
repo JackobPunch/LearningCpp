@@ -163,3 +163,53 @@ Mystring &Mystring::operator+=(const Mystring &rhs)
     *this = *this + rhs; // Utilize the existing operator+ overload
     return *this;        // Return a reference to the modified object
 }
+
+Mystring Mystring::operator*(const int &rhs) const
+{
+    size_t originalSize = std::strlen(str);
+    size_t newSize = originalSize * rhs;
+
+    // Allocate memory for the concatenated string (+1 for the null terminator)
+    char *result = new char[newSize + 1];
+    result[0] = '\0'; // Ensure the string starts with a null terminator
+
+    // Repeat the original string 'rhs' times
+    for (int i = 0; i < rhs; ++i)
+    {
+        std::strcat(result, str);
+    }
+
+    Mystring resultString(result);
+
+    // Deallocate the dynamically allocated memory
+    delete[] result;
+
+    return resultString;
+}
+
+Mystring &Mystring::operator*=(const int &rhs)
+{
+    *this = *this * rhs;
+    return *this;
+}
+
+Mystring &Mystring::operator++() // pre-increment
+{
+    if (str != nullptr)
+    {
+        char *p = str;
+        while (*p)
+        {
+            *p = std::toupper(*p);
+            ++p;
+        }
+    }
+    return *this;
+}
+
+Mystring Mystring::operator++(int) // post-increment
+{
+    Mystring temp(*this); // make a copy
+    operator++();         // call pre-increment - make sure you call pre-increment!
+    return temp;          // return the old value
+}
