@@ -10,17 +10,17 @@ class Checking_Account : public Account
     friend std::ostream &operator<<(std::ostream &os, const Account &account);
 
 private:
-    static constexpr const char *def_name = "Unnamed Savings Account";
+    static constexpr const char *def_name = "Unnamed Checking Account";
     static constexpr double def_balance = 0.0;
     static constexpr double def_fee = 1.50;
 
 protected:
-    double fee;
+    double fee = def_fee;
 
 public:
-    Checking_Account(std::string name = def_name, double balance = def_balance, double fee = def_fee);
+    Checking_Account(std::string name = def_name, double balance = def_balance);
     bool withdraw(double amount);
     // Inherits the Account::deposit methods
 };
 
-#endif // _SAVINGS_ACCOUNT_H_
+#endif // _CHECKING_ACCOUNT_H_

@@ -4,6 +4,7 @@
 #include <vector>
 #include "Savings_Account.h"
 #include "Checking_Account.h"
+#include "Trust_Account.h"
 #include "Account_Util.h"
 
 using namespace std;
@@ -47,6 +48,26 @@ int main()
     display(chck_accounts);
     deposit(chck_accounts, 1000);
     withdraw(chck_accounts, 2000);
+
+    // Trust
+
+    vector<Trust_Account> tru_accounts;
+    tru_accounts.push_back(Trust_Account{});
+    tru_accounts.push_back(Trust_Account{"Superman"});
+    tru_accounts.push_back(Trust_Account{"Batman", 2000});
+    tru_accounts.push_back(Trust_Account{"Wonderwoman", 5000, 5.0});
+
+    display(tru_accounts);
+    deposit(tru_accounts, 5000);
+    withdraw(tru_accounts, 20);
+    withdraw(tru_accounts, 20);
+    withdraw(tru_accounts, 20);
+    withdraw(tru_accounts, 20);
+
+    // Overloaded constructors
+    tru_accounts[0] += 3000;
+    tru_accounts[1] -= 2000;
+    display(tru_accounts);
 
     return 0;
 }

@@ -1,7 +1,7 @@
 #include "Checking_Account.h"
 
-Checking_Account::Checking_Account(std::string name, double balance, double fee)
-    : Account{name, balance}, fee{fee}
+Checking_Account::Checking_Account(std::string name, double balance)
+    : Account{name, balance}
 {
 }
 
