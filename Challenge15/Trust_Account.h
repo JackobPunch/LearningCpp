@@ -11,7 +11,7 @@
 
 class Trust_Account : public Savings_Account
 {
-    friend std::ostream &operator<<(std::ostream &os, const Savings_Account &account);
+    friend std::ostream &operator<<(std::ostream &os, const Account &account);
 
 private:
     static constexpr const char *def_name = "Unnamed Trust Account";

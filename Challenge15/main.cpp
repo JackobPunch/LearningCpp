@@ -59,10 +59,9 @@ int main()
 
     display(tru_accounts);
     deposit(tru_accounts, 5000);
-    withdraw(tru_accounts, 20);
-    withdraw(tru_accounts, 20);
-    withdraw(tru_accounts, 20);
-    withdraw(tru_accounts, 20);
+
+    for (int i = 1; i <= 5; i++)
+        withdraw(tru_accounts, 1000);
 
     // Overloaded constructors
     tru_accounts[0] += 3000;
