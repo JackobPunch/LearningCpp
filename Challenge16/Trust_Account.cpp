@@ -10,13 +10,7 @@ bool Trust_Account::deposit(double amount)
 {
     if (amount >= bonus_threshold)
         amount += bonus_amount;
-    if (amount < 0)
-        return false;
-    else
-    {
-        balance += amount;
-        return true;
-    }
+    return Account::deposit(amount);
 }
 
 // Only allowed 3 withdrawals, each can be up to a maximum of 20% of the account's value
@@ -27,13 +21,7 @@ bool Trust_Account::withdraw(double amount)
     else
     {
         ++num_withdrawals;
-        if (balance - amount >= 0)
-        {
-            balance -= amount;
-            return true;
-        }
-        else
-            return false;
+        return Account::withdraw(amount);
     }
 }
 

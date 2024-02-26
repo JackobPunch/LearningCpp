@@ -15,7 +15,7 @@ int main()
     cout.precision(2);
     cout << fixed;
 
-    /*// Accounts
+    // Accounts
     vector<Account> accounts;
     accounts.push_back(Account{});
     accounts.push_back(Account{"Larry"});
@@ -24,7 +24,7 @@ int main()
 
     display(accounts);
     deposit(accounts, 1000);
-    withdraw(accounts, 2000);*/
+    withdraw(accounts, 2000);
 
     // Savings
 
