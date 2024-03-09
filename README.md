@@ -1,6 +1,6 @@
 # Learning C++
 ## 1. Udemy
-I am currently in the middle of this course. The folder contains the solutions to the challenges completing each section of the Cpp course on the udemy platform [https://www.udemy.com/course/beginning-c-plus-plus-programming/].
+I am currently in the process of completing this course. The folder contains the solutions to the challenges completing each section of the Cpp course on the udemy platform [https://www.udemy.com/course/beginning-c-plus-plus-programming/].
 The numbering starts with 13, as I have formatted my computer in the meantime and lost the solutions of the earlier sections. The folders contain subfolders with the files and description of the challenge provided by the course, subfolders with my solution and sometimes in addition a README file with the description made by me
 
 ## 2. Sololearn
