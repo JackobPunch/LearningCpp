@@ -25,7 +25,7 @@ int main()
     bool previously_letter = false;
     while (in_file.get(c))
     {
-        if (c != ' ' && c != '\n' && c != '\t')
+        if (c != ' ' && c != '\n' && c != '\t' && c != '|' && c != ']' && c != '[' && c != '(' && c != ')' && c != ':' && c != ';' && c != '.' && c != ',' && c != '?' && c != '!' && c != '\"')
         {
             previously_letter = true;
             if (c == substring[0])
