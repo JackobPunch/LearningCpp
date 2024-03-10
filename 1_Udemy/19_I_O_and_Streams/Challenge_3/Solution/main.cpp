@@ -22,11 +22,12 @@ int main()
     cin >> substring;
 
     char c{};
-    bool first_character = true;
+    bool previously_letter = false;
     while (in_file.get(c))
     {
         if (c != ' ' && c != '\n' && c != '\t')
         {
+            previously_letter = true;
             if (c == substring[0])
             {
                 bool found_substring = true;
@@ -47,9 +48,9 @@ int main()
         }
         else
         {
-            if (first_character == false)
+            if (previously_letter == true)
                 counter_words++;
-            first_character = false;
+            previously_letter = false;
         }
     }
     cout << counter_words << " words were searched..." << endl;
